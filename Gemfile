@@ -27,9 +27,19 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise'
+
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc6.2'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
