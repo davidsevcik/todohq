@@ -1,5 +1,8 @@
-# For more information see: http://emberjs.com/guides/routing/
+App.Router.map ()->
+  @resource 'users', ->
+    @route('new')
 
-Todohq.Router.map ()->
-  # @resource('posts')
+  @resource 'sessions', ->
+    @route('new')
+    @route('destroy')
 

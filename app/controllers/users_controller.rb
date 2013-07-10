@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
+
   def create
     user = User.new params.require(:user).permit(:email, :password, :password_confirmation)
 
     if user.save
-      render json: user, status: :created
+      render json: user
     else
-      respond_with user
+      render json: user, status: 422
     end
+  end
+
+  def show
+    render json: current_user || {}
   end
 end

@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -20,6 +20,6 @@
 //= require todohq
 
 // for more details see: http://emberjs.com/guides/application/
-Todohq = Ember.Application.create();
+App = Ember.Application.create();
 
 //= require_tree .

@@ -1,9 +1,7 @@
 Todohq::Application.routes.draw do
-  devise_for :users
+  root 'launch#index'
 
-  root 'single_page#index'
-
-  resources :users, only: [:create]
+  resources :users, only: [:show, :create]
   resources :sessions, only: [:create, :destroy]
 
   # Example of regular route:
