@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     user = User.new params.require(:user).permit(:email, :password, :password_confirmation)
 
     if user.save
-      render json: user
+      render json: user, status: :created
     else
-      render json: user, status: 422
+      render json: {errors: user.errors}, status: :unprocessable_entity
     end
   end
 
