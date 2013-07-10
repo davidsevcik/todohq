@@ -1,9 +1,10 @@
 Todohq::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  devise_for :users
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'single_page#index'
+
+  resources :users, only: [:create]
+  resources :sessions, only: [:create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -39,7 +40,7 @@ Todohq::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
