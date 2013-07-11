@@ -1,8 +1,10 @@
-App.Router.map ()->
+App.Router.map ->
   @resource 'users', ->
-    @route('new')
+    @route 'new'
 
   @resource 'sessions', ->
-    @route('new')
-    @route('destroy')
+    @route 'new'
+    @route 'destroy'
 
+  @resource 'tasks', ->
+    @route 'index'

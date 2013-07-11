@@ -1,4 +1,4 @@
-#= require ./store
+#= require ./rest_adapter
 #= require_tree ./models
 #= require_tree ./controllers
 #= require_tree ./views
@@ -11,7 +11,7 @@
 Ember.Application.initializer
   name: 'currentUser'
   initialize: (container) ->
-    store = container.lookup('store:main')
-    user = App.User.find('current')
-    container.lookup('controller:currentUser').set('content', user)
+    # store = container.lookup('store:main')
+    # user = App.User.find('current')
+    container.lookup('controller:currentUser').set('content', null)
     container.typeInjection('controller', 'currentUser', 'controller:currentUser')

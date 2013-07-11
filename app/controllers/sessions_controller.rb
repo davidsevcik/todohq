@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
+  before_filter :authenticate_user!, except: [:create]
+
   def create
     user = User.find_for_database_authentication(email: params[:session][:email])
 
     if user && user.valid_password?(params[:session][:password])
-      sign_in user
-      render json: {
-        session: { id: user.id, email: user.email }
-      }, status: :created
+      user.reset_authentication_token!
+      render json: { token: user.authentication_token }, status: :created
     else
       render json: {
         errors: {
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out :user
+    current_user.update_attribute :authentication_token, nil
     render json: {}, status: :accepted
   end
 end
