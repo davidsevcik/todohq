@@ -4,7 +4,6 @@ App.Router.map ->
 
   @resource 'sessions', ->
     @route 'new'
-    @route 'destroy'
 
   @resource 'tasks', ->
     @route 'index'

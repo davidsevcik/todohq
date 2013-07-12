@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if user && user.valid_password?(params[:session][:password])
       user.reset_authentication_token!
-      render json: { token: user.authentication_token }, status: :created
+      render json: user, status: :created
     else
       render json: {
         errors: {

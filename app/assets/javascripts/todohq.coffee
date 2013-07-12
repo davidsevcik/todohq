@@ -9,9 +9,11 @@
 
 
 Ember.Application.initializer
-  name: 'currentUser'
+  name: 'currentSession'
   initialize: (container) ->
-    # store = container.lookup('store:main')
-    # user = App.User.find('current')
-    container.lookup('controller:currentUser').set('content', null)
-    container.typeInjection('controller', 'currentUser', 'controller:currentUser')
+    session = if cookieSession = $.cookie('currentSession')
+      App.Session.create JSON.parse(cookieSession)
+    else
+      null
+    container.lookup('controller:currentSession').set 'content', session
+    container.typeInjection('controller', 'currentSession', 'controller:currentSession')

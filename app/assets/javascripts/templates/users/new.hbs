@@ -1,5 +1,5 @@
-<h1>Create an Account</h1>
-<form class="form-horizontal">
+<form class="form-signin">
+  <h2>Create an Account</h1>
   <div class="control-group" {{bindAttr class="errors.email:error"}}>
     <label class="control-label" for="email">Email</label>
     <div class="controls">
@@ -27,10 +27,6 @@
       </span>
     </div>
   </div>
-  <div class="control-group">
-    <div class="controls">
-      <button type="submit" {{action save}} class="btn btn-large btn-primary">Sign Up</button>
-      or {{#linkTo "sessions.new"}}Login{{/linkTo}}
-    </div>
-  </div>
+  <button type="submit" {{action save}} class="btn btn-large btn-primary">Create an account</button>
+  or {{#linkTo "sessions.new"}}Sign in{{/linkTo}}
 </form>

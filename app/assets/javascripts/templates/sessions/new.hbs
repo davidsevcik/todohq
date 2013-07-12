@@ -1,5 +1,5 @@
-<h1>Login</h1>
-<form class="form-horizontal">
+<form class="form-signin">
+  <h2>Please sign in</h2>
   <div class="control-group" {{bindAttr class="errors.email:error"}}>
     <label class="control-label" for="email">Email</label>
     <div class="controls">
@@ -15,10 +15,6 @@
       {{view Ember.TextField type="password" valueBinding="password"}}
     </div>
   </div>
-  <div class="control-group">
-    <div class="controls">
-      <button type="submit" {{action save}} class="btn btn-large btn-primary">Login</button>
-      or {{#linkTo "users.new"}}Sign Up{{/linkTo}}
-    </div>
-  </div>
+  <button type="submit" {{action save}} class="btn btn-large btn-primary">Sign in</button>
+  or {{#linkTo "users.new"}}Create a new account{{/linkTo}}
 </form>

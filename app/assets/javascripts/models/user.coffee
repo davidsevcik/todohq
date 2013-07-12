@@ -5,6 +5,7 @@ App.User = Em.Model.extend
   passwordConfirmation: Em.attr()
   authenticationToken: Em.attr()
 
+
 App.User.url = '/users'
 App.User.adapter = Em.RESTAdapter.create()
 App.User.camelizeKeys = true

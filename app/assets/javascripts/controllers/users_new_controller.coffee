@@ -1,8 +1,9 @@
 App.UsersNewController = Ember.ObjectController.extend
-  needs: ['currentUser']
+  needs: ['currentSession']
   save: ->
     @content.save().then((=>
-        @get('controllers.currentUser').set 'content', @content
+        session = App.Session.create @content.getProperties('email', 'authenticationToken')
+        @get('controllers.currentSession').set 'content', session
         @transitionToRoute 'tasks.index'
       ),
       (xhr) =>

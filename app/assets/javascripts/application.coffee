@@ -11,7 +11,7 @@
 # about supported directives.
 #
 #= require jquery
-#= require jquery_ujs
+#= require jquery.cookie
 #= require bootstrap
 #= require handlebars
 #= require ember
