@@ -3,6 +3,7 @@ Todohq::Application.routes.draw do
 
   resources :users, only: [:show, :create]
   resources :sessions, only: [:create, :destroy]
+  resources :tasks, only: [:index, :create, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

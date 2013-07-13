@@ -1,0 +1,40 @@
+{{#if noTasks}}
+  <div class="alert alert-info">
+    <strong>Welcome!</strong> Create your first task below.
+  </div>
+{{/if}}
+
+{{#view view.newTaskFormClass contentBinding="newTask" classNames="form-inline row-fluid"}}
+  {{view Em.TextField valueBinding="view.content.title" placeholder="New task" classNames="new-task-input span9"}}
+  {{view Em.Select valueBinding="view.content.priority"
+    contentBinding="App.Task.priorities"
+    optionValuePath="content.value"
+    optionLabelPath="content.title"
+    prompt="Select priority..."
+    classNames="span2"}}
+  <button {{action create}} type="submit" class="btn btn-primary">Add task</button>
+{{/view}}
+
+{{view App.AjaxLoader isVisibleBinding="content.isLoading"}}
+
+{{#collection view.taskCollectionViewClass contentBinding="content"}}
+  {{#if view.content.editable}}
+    {{#view view.editTaskFormClass contentBinding="view.content" classNames="form-inline row-fluid"}}
+      {{view Em.Checkbox checkedBinding="view.content.done"}}
+      {{view Em.TextField valueBinding="view.content.title" classNames="span8"}}
+      {{view Em.Select valueBinding="view.content.priority"
+        contentBinding="App.Task.priorities"
+        optionValuePath="content.value"
+        optionLabelPath="content.title"
+        classNames="span2"}}
+      <button {{action update view.content}} type="submit" class="btn btn-primary">Save</button>
+      <button {{action cancelEdit view.content}} class="btn">Cancel</button>
+    {{/view}}
+  {{else}}
+    <a href="#" {{action destroy view.content}} class="action" title="Delete task"><i class="icon-remove"></i></a>
+    <a href="#" {{action edit view.content}} class="action" title="Edit task"><i class="icon-edit"></i></a>
+    {{view view.priorityViewClass}}
+    {{view view.doneCheckboxClass}}
+    {{view view.titleViewClass}}
+  {{/if}}
+{{/collection}}

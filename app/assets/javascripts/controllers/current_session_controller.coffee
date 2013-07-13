@@ -3,7 +3,7 @@ App.CurrentSessionController = Ember.ObjectController.extend
 
   contentDidChange: (->
     if Em.isEmpty @get('content.authenticationToken')
-      $.cookie 'currentSession', null
+      $.removeCookie 'currentSession'
     else
       json = JSON.stringify @get('content').getProperties('email', 'authenticationToken')
       $.cookie 'currentSession', json

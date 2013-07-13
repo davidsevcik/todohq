@@ -808,7 +808,7 @@ Ember.Model.reopenClass({
 
   addToRecordArrays: function(record) {
     if (this._findAllRecordArray) {
-      this._findAllRecordArray.pushObject(record);
+      this._findAllRecordArray.addObject(record);
     }
     if (this.recordArrays) {
       this.recordArrays.forEach(function(recordArray) {
@@ -816,7 +816,7 @@ Ember.Model.reopenClass({
           recordArray.registerObserversOnRecord(record);
           recordArray.updateFilter();
         } else {
-          recordArray.pushObject(record);
+          recordArray.addObject(record);
         }
       });
     }

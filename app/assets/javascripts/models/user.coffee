@@ -7,5 +7,5 @@ App.User = Em.Model.extend
 
 
 App.User.url = '/users'
-App.User.adapter = Em.RESTAdapter.create()
+App.User.adapter = App.RESTAdapter.create()
 App.User.camelizeKeys = true

@@ -3,7 +3,7 @@
   <div class="control-group" {{bindAttr class="errors.email:error"}}>
     <label class="control-label" for="email">Email</label>
     <div class="controls">
-      {{view Ember.TextField valueBinding="email" name="email"}}
+      {{view Em.TextField valueBinding="email" name="email"}}
       <span class="help-inline">
         {{errors.email}}
       </span>
@@ -12,7 +12,7 @@
   <div class="control-group" {{bindAttr class="errors.password:error"}}>
     <label class="control-label" for="password">Password</label>
     <div class="controls">
-      {{view Ember.TextField type="password" valueBinding="password"}}
+      {{view Em.TextField type="password" valueBinding="password"}}
     </div>
   </div>
   <button type="submit" {{action save}} class="btn btn-large btn-primary">Sign in</button>

@@ -15,5 +15,8 @@ Ember.Application.initializer
       App.Session.create JSON.parse(cookieSession)
     else
       null
-    container.lookup('controller:currentSession').set 'content', session
+
+    sessionController = container.lookup('controller:currentSession')
+    App.RESTAdapter.sessionController = sessionController
+    sessionController.set 'content', session
     container.typeInjection('controller', 'currentSession', 'controller:currentSession')

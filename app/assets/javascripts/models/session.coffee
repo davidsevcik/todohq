@@ -4,7 +4,7 @@ App.Session = Em.Model.extend
   authenticationToken: Em.attr()
 
 App.Session.url = '/sessions'
-App.Session.adapter = Em.RESTAdapter.create()
+App.Session.adapter = App.RESTAdapter.create()
 App.Session.camelizeKeys = true
 
 
