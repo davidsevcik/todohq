@@ -15,3 +15,9 @@ App.RESTAdapter = Ember.RESTAdapter.extend
     if session = @constructor.sessionController.get('content')
       url += "?auth_token=#{session.get('authenticationToken')}"
     url
+
+  ajax: ->
+    @_super.apply(@, arguments).then(((data) -> data), (xhr) =>
+      @constructor.router.send 'unauthorized' if xhr.status is 401
+      xhr
+    )

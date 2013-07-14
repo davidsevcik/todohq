@@ -1,29 +1,17 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="#">TodoHQ</a>
-      <div class="nav-collapse collapse" style="height: 0px;">
-        <ul class="nav pull-right">
-          {{#if currentSession.isSignedIn}}
-            <li>
-              <a href="#" {{action "signOut"}}>Sign out {{currentSession.email}}</a>
-            </li>
-          {{else}}
-            <li>{{#linkTo "users.new"}}Create a new Account{{/linkTo}}</li>
-            <li>{{#linkTo "sessions.new"}}Sign in{{/linkTo}}</li>
-          {{/if}}
-        </ul>
-        <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
+      <a class="brand" href="/">TodoHQ</a>
+      <ul class="nav pull-right">
+        {{#if currentSession.isSignedIn}}
+          <li>
+            <a href="#" {{action "signOut"}}>Sign out {{currentSession.email}}</a>
+          </li>
+        {{else}}
+          <li>{{#linkTo "users.new"}}Create a new Account{{/linkTo}}</li>
+          <li>{{#linkTo "sessions.new"}}Sign in{{/linkTo}}</li>
+        {{/if}}
+      </ul>
     </div>
   </div>
 </div>
