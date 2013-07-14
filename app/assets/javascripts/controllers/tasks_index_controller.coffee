@@ -13,11 +13,12 @@ App.TasksIndexController = Em.ArrayController.extend
 
   create: ->
     task = @get('newTask')
-    task.set('priority', 0) if Em.isEmpty task.get('priority')
-    task.set 'lastCreated', true
-    task.save().then(=>
-      @set 'newTask', App.Task.create()
-    )
+    unless Em.isEmpty task.get('title')?.trim()
+      task.set('priority', 0) if Em.isEmpty task.get('priority')
+      task.set 'lastCreated', true
+      task.save().then(=>
+        @set 'newTask', App.Task.create()
+      )
 
   edit: (task) ->
     task.set 'editable', true

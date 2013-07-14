@@ -10,5 +10,6 @@ App.ApplicationRoute = Em.Route.extend
       @transitionTo 'index'
 
     unauthorized: ->
+      @controllerFor('currentSession').set 'content', null
       @transitionTo 'sessions.new'
   }

@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'thin'
 
-gem 'devise'
+gem 'devise', '~> 3.0.0'
 
 gem 'active_model_serializers'
 gem 'ember-rails'
@@ -31,15 +31,23 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
+group :development do
+  gem 'guard'
+  gem 'guard-cucumber'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-group :test do
+group :test, :development do
+  gem 'selenium-webdriver'
+  gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'konacha'
+  gem 'pry'
 end
 
 # Use ActiveModel has_secure_password
