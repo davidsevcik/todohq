@@ -1,14 +1,10 @@
 App.RESTAdapter = Ember.RESTAdapter.extend
 
-  # createRecord: (record) ->
-  #   @_super(record).then((->), (xhr) ->
-  #     record.set('errors', errors) if errors = Em.get(xhr, 'responseJSON.errors')
-  #   )
+  createRecord: (record) ->
+    @_super(record).then ((data) -> data), (xhr) => @_failHandling(xhr, record)
 
-  # saveRecord: (record) ->
-  #   @_super(record).then((->), (xhr) ->
-  #     record.set('errors', errors) if errors = Em.get(xhr, 'responseJSON.errors')
-  #   )
+  saveRecord: (record) ->
+    @_super(record).then ((data) -> data), (xhr) => @_failHandling(xhr, record)
 
   buildURL: (klass, id) ->
     url = @_super(klass, id)
@@ -21,3 +17,10 @@ App.RESTAdapter = Ember.RESTAdapter.extend
       @constructor.router.send 'unauthorized' if xhr.status is 401
       xhr
     )
+
+  _failHandling: (xhr, record) ->
+    if errors = Em.get(xhr, 'responseJSON.errors')
+      camelizedErrors = {}
+      camelizedErrors[Em.String.camelize(key)] = value for key, value of errors
+      record.set('errors', camelizedErrors)
+    xhr

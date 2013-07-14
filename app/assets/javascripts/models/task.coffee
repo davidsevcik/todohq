@@ -24,7 +24,7 @@ App.Task.priorities = [
 
 App.Task.reopenClass
   findAllSorted: ->
-    return @_findAllRecordArray if @_findAllRecordArray
+    # return @_findAllRecordArray if @_findAllRecordArray
 
     sortFunction = (a, b) ->
       priorityOrder = b.get('priority') - a.get('priority')
