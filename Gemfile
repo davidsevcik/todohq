@@ -35,6 +35,7 @@ gem 'coffee-rails', '~> 4.0.0'
 group :development do
   gem 'guard'
   gem 'guard-cucumber'
+  gem 'guard-rspec'
 end
 
 group :doc do
@@ -49,6 +50,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'konacha'
   gem 'pry'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :production do

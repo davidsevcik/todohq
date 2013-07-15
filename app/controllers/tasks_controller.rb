@@ -33,8 +33,7 @@ private
   end
 
   def with_task
-    task = current_user.tasks.find params[:id]
-    if task
+    if task = current_user.tasks.find_by(id: params[:id])
       yield task
     else
       render json: {}, status: :not_found

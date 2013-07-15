@@ -2,9 +2,9 @@ class SessionsController < ApplicationController
   before_filter :authenticate_user!, except: [:create]
 
   def create
-    user = User.find_for_database_authentication(email: params[:session][:email])
+    user = User.find_for_database_authentication(email: params[:email])
 
-    if user && user.valid_password?(params[:session][:password])
+    if user && user.valid_password?(params[:password])
       user.reset_authentication_token!
       render json: user, status: :created
     else
