@@ -5,8 +5,10 @@
 {{/if}}
 
 {{#view view.newTaskFormClass contentBinding="newTask" classNames="form-inline row-fluid"}}
-  {{view Em.TextField valueBinding="view.content.title" placeholder="New task" classNames="new-task-input span9"elementId="new-task-title"}}
-  {{view Em.Select valueBinding="view.content.priority"
+  {{view Em.TextField valueBinding="view.content.title" placeholder="New task" classNames="new-task-input span9" elementId="new-task-title"}}
+  {{view Em.Select
+    elementId="priority"
+    valueBinding="view.content.priority"
     contentBinding="App.Task.priorities"
     optionValuePath="content.value"
     optionLabelPath="content.title"

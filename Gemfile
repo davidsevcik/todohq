@@ -51,6 +51,7 @@ group :test, :development do
   gem 'konacha'
   gem 'pry'
   gem "factory_girl_rails", "~> 4.0"
+  gem "spork-rails", github: 'sporkrb/spork-rails'
 end
 
 group :production do

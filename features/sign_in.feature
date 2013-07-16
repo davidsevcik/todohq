@@ -6,19 +6,19 @@ Feature: Sign in
 
 
   Scenario: Success
-    Given I am registered with email joe@doe.com and password 123456
-    And go on the Sign in page
-    When I fill in Email field with joe@doe.com
-    And fill in Password field with 123456
+    Given I go on "Sign in" page
+    And I am registered with email "joe@doe.com" and password "123456"
+    When I fill in "Email" field with "joe@doe.com"
+    And fill in "Password" field with "123456"
     And submit the form
-    Then I am on the Task list page
+    Then I am redirected on "Task list" page
 
 
-  Scenario: Fail - wrong Password
-    Given I am registered with email joe@doe.com and password 123456
-    And go on the Sign in page
-    When I fill in Email field with joe@doe.com
-    And fill in Password field with 789
+  Scenario: Fail - wrong password
+    Given I go on "Sign in" page
+    And I am registered with email "joe@doe.com" and password "123456"
+    When I fill in "Email" field with "joe@doe.com"
+    And fill in "Password" field with "789"
     And submit the form
-    Then I stay on the Sign in page
+    Then I stay on "Sign in" page
     And see a validation error
