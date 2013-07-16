@@ -23,7 +23,7 @@
   {{#if view.content.editable}}
     {{#view view.editTaskFormClass contentBinding="view.content" classNames="form-inline row-fluid"}}
       {{view Em.Checkbox checkedBinding="view.content.done"}}
-      {{view Em.TextField valueBinding="view.content.title" classNames="span8"}}
+      {{view Em.TextField valueBinding="view.content.title" classNames="span8" elementId="edit-task-title"}}
       {{view Em.Select valueBinding="view.content.priority"
         contentBinding="App.Task.priorities"
         optionValuePath="content.value"

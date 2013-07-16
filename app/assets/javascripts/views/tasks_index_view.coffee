@@ -34,6 +34,7 @@ App.TasksIndexView = Em.View.extend
         template: Em.Handlebars.compile '{{view.task.priorityTitle}}'
 
       doneCheckboxClass: Em.Checkbox.extend
+        classNames: 'done-checkbox'
         task: Em.computed.oneWay 'parentView.content'
         checked: Em.computed (key, value) ->
           if value is undefined
@@ -44,6 +45,7 @@ App.TasksIndexView = Em.View.extend
 
 
       editTaskFormClass: Em.View.extend
+        elementId: 'edit-task-form'
         tagName: 'form'
         didInsertElement: ->
           @$('input:text').focus()
